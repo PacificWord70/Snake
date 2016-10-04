@@ -1,0 +1,47 @@
+import javax.swing.JComponent;
+import java.awt.*;
+import java.awt.geom.*;
+import java.util.*;
+public class StatsComponent extends JComponent
+{
+    int score = 0;
+    int moves = 0;
+    boolean started = false;
+
+    public void paintComponent(Graphics g)
+    {
+        Graphics2D g2= (Graphics2D)g;
+        g2.drawString("Directions:",50,525);
+        g2.drawString("1. Try to get 25 burgers",50,550);
+        g2.drawString("2. Avoid the hole",50,575);
+        g2.drawString("3. Do not hit the walls",50,600);
+        g2.drawString("4. When ready to start, click out of the screen and then click on the screen again",50,625);
+        g2.drawString("Score: "+Integer.toString(score),550,50);
+        g2.drawString("Moved: "+Integer.toString(moves),550,100);
+    }
+
+    public void addScore()
+    {
+        score++;
+    }
+    
+    public void moved()
+    {
+        moves++;
+    }
+    
+    public boolean getStarted()
+    {
+        return started;
+    }
+    
+    public void yesStarted()
+    {
+        started=true;
+    }
+    
+    public void noStarted()
+    {
+        started=false;
+    }
+}
